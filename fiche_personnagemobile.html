@@ -922,6 +922,13 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 .type-popup.open { display: flex; }
+.type-popup.open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: -1;
+}
 .type-opt {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px;
@@ -1269,19 +1276,28 @@ body {
     font-size: 11px;
   }
 
-  /* Popups fullwidth en bas */
+  /* Popup centré sur mobile */
   .type-popup {
-    width: calc(100vw - 32px) !important;
-    left: 16px !important;
-    bottom: 0;
-    top: auto !important;
-    border-radius: 12px 12px 0 0;
+    width: calc(100vw - 48px) !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 12px !important;
+    max-height: 70vh;
+    overflow-y: auto;
   }
 
   /* Bouton télécharger plus petit */
   #save-bar {
     bottom: 8px;
     right: 8px;
+  }
+
+  .cap-puiss-overlay {
+    position: fixed !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
   }
 }
 
